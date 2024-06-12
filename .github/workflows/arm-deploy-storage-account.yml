@@ -1,4 +1,5 @@
-on: [workflow_dispatch]
+on: [push]
+#on: [workflow_dispatch]
 
 name: AzARMStorageAccountDeploy
 
@@ -22,6 +23,6 @@ jobs:
           inlineScript: |
             az deployment group create \
             --name StorageAccountDeployment \
-            --resource-group savdevgithubdeploy \
+            --resource-group GITHUB-ADO-RG \
             --template-file armtemplates/storageaccount.json \
             --parameters storageAccountType=Standard_GRS
